@@ -50,8 +50,6 @@ function search_item_price(list, item_name) {
     if (sort_list[mid_index].name > item_name) {
       end = mid_index - 1;
     }
-
-    // console.log(sort_list[mid_index])
   }
 
   return list;
