@@ -57,4 +57,93 @@ function search_item_price(list, item_name) {
 
 const result = search_item_price(item_list, "Carrot");
 
-console.log(result)
+// console.log(result)
+
+/*
+
+2. 📚 “Is That Book Available?”
+A librarian is building a system where book IDs are always kept sorted. When someone comes and asks if a particular book ID is available, the system should check and reply instantly with a “yes” or “no.”
+Help the librarian by writing the logic that efficiently checks if the book is available using the stored sorted list.
+
+*/
+
+const librarian_books = [
+  { bookId: 1, title: "The Silent Library", author: "Mira Harper", year: 2019 },
+  {
+    bookId: 2,
+    title: "Whispers of the Wind",
+    author: "Evan Blake",
+    year: 2020,
+  },
+  { bookId: 3, title: "The Last Archivist", author: "Lana Torres", year: 2018 },
+  { bookId: 4, title: "Chronicles of Ink", author: "Felix Grant", year: 2021 },
+  { bookId: 5, title: "Pages Unfold", author: "Nina Bell", year: 2022 },
+  { bookId: 6, title: "Realm of Stories", author: "Oscar Flynn", year: 2020 },
+  {
+    bookId: 7,
+    title: "Tales from the Stacks",
+    author: "Grace Monroe",
+    year: 2023,
+  },
+  {
+    bookId: 8,
+    title: "Dust and Knowledge",
+    author: "Leo Sinclair",
+    year: 2017,
+  },
+  {
+    bookId: 9,
+    title: "The Bookkeeper's Code",
+    author: "Isla Vance",
+    year: 2021,
+  },
+  { bookId: 10, title: "Inkheart Tales", author: "Hugo Rhodes", year: 2024 },
+  { bookId: 11, title: "Echoes of Paper", author: "Camille Stone", year: 2020 },
+  {
+    bookId: 12,
+    title: "Scriptorium Secrets",
+    author: "Joel Emerson",
+    year: 2016,
+  },
+  { bookId: 13, title: "The Library Maze", author: "Clara Night", year: 2019 },
+  {
+    bookId: 14,
+    title: "Scrolls and Shadows",
+    author: "Victor Hale",
+    year: 2018,
+  },
+  {
+    bookId: 15,
+    title: "Between the Shelves",
+    author: "Sophie Wren",
+    year: 2023,
+  },
+  { bookId: 16, title: "Index of Dreams", author: "Jasper Quinn", year: 2022 },
+  { bookId: 17, title: "Librarian's Legacy", author: "Maya Cross", year: 2021 },
+  { bookId: 18, title: "Catalog of Wonders", author: "Dylan Park", year: 2024 },
+  { bookId: 19, title: "Spines and Souls", author: "Lena Frost", year: 2017 },
+  { bookId: 20, title: "Bound by Words", author: "Arlo West", year: 2018 },
+];
+
+function ask_book(booklist, book_id) {
+  let start = 0;
+  let end = booklist.length - 1;
+
+  for (let i = start; i < end; i++) {
+    let mid_index = Math.floor((start + end) / 2);
+
+    if (booklist[mid_index].bookId == book_id) {
+      return "yes";
+    }
+
+    if (booklist[mid_index].bookId < book_id) {
+      start = mid_index + 1;
+    } else if (booklist[mid_index].bookId > book_id) {
+      end = mid_index - 1;
+    }
+  }
+  return "no";
+}
+
+const ask_book_result = ask_book(librarian_books, 5);
+// console.log(ask_book_result);
