@@ -24,3 +24,8 @@ You’re at a digital bus stop where an electronic screen shows all arriving bus
 #### 5. 🏆 “Who’s Winning the Tournament?”
 
 You’re in charge of a school coding tournament scoreboard. Every player’s score is being tracked. Your task is to display the leaderboard from the highest score to the lowest so everyone can see who’s leading. Use logic to rearrange the players based on their scores.
+
+#### 6. 🎬 “Is That Movie in the Database?”
+
+You’re working on a cinema ticket website. When users search for a movie title, it needs to tell them if the movie is available in the database or not. The list of movie names is already sorted alphabetically.
+Write the logic that checks if a particular movie exists in the system and returns its index if found.
