@@ -72,7 +72,7 @@ function search_item_price(list, item_name) {
 
 const result = search_item_price(item_list, "Carrot");
 
-console.log(result);
+// console.log(result);
 
 /*
 
@@ -338,15 +338,17 @@ const cinema = [
 function find_cinema(cinema_arr, target_cinema) {
   let start = 0;
   let end = cinema_arr.length - 1;
-  for (let i = start; i <= end; i++) {
+
+  while (start <= end) {
     let mid_index = Math.floor((start + end) / 2);
-   
     if (cinema_arr[mid_index] === target_cinema) {
-      return cinema_arr[mid_index];
+      return mid_index;
     }
+    
     if (cinema_arr[mid_index].localeCompare(target_cinema) < 0) {
       start = mid_index + 1;
-    } else {
+    }
+    else {
       end = mid_index - 1;
     }
   }
@@ -357,47 +359,6 @@ function find_cinema(cinema_arr, target_cinema) {
 
 const cinema_result = find_cinema(cinema, "Avatar")
 
-console.log("cinema",cinema_result)
+console.log(cinema_result)
 
 
-// function find_cinema(cinema_arr, target_cinema) {
-//   let start = 0;
-//   let end = cinema_arr.length - 1;
-
-//   while (start <= end) {
-//     let mid_index = Math.floor((start + end) / 2);
-    
-//     // If target cinema is found
-//     if (cinema_arr[mid_index] === target_cinema) {
-//       return cinema_arr[mid_index];
-//     }
-    
-//     // If the target cinema comes after the mid cinema, move to the right side
-//     if (cinema_arr[mid_index].localeCompare(target_cinema) < 0) {
-//       start = mid_index + 1;
-//     }
-//     // If the target cinema comes before the mid cinema, move to the left side
-//     else {
-//       end = mid_index - 1;
-//     }
-//   }
-
-//   return "Not Found This Cinema";  // If the cinema is not found
-// }
-
-// // Example Usage
-// const cinema = [
-//   "Avatar",
-//   "Black Panther",
-//   "Dune",
-//   "Inception",
-//   "Interstellar",
-//   "Joker",
-//   "Oppenheimer",
-//   "Parasite",
-//   "The Dark Knight",
-//   "Titanic"
-// ];
-
-// const cinema_result = find_cinema(cinema, "Avatar");
-// console.log(cinema_result);  // Output: Avatar
