@@ -264,4 +264,50 @@ function find_frist_dest(bus_list, destination) {
 
 const dest_result = find_frist_dest(bus_arriving_dest, "banani");
 
-console.log("the frist bannai bus: ", dest_result);
+// console.log("the frist bannai bus: ", dest_result);
+/*
+
+5. 🏆 “Who’s Winning the Tournament?”
+You’re in charge of a school coding tournament scoreboard. Every player’s score is being tracked. Your task is to display the leaderboard from the highest score to the lowest so everyone can see who’s leading.
+
+Use logic to rearrange the players based on their scores.
+
+*/
+
+const players = [
+  { name: "Arif", score: 92 },
+  { name: "Tamim", score: 85 },
+  { name: "Nafisa", score: 78 },
+  { name: "Rafi", score: 96 },
+  { name: "Meem", score: 88 },
+  { name: "Shuvo", score: 67 },
+  { name: "Lamia", score: 91 },
+  { name: "Tanim", score: 83 },
+  { name: "Sadia", score: 89 },
+  { name: "Hossain", score: 74 },
+  { name: "Zara", score: 81 },
+  { name: "Mahin", score: 90 },
+  { name: "Tuhin", score: 69 },
+  { name: "Ruba", score: 86 },
+  { name: "Ishrat", score: 94 }
+]
+
+
+function coding_tournament(players) {
+  for (let i = 0; i < players.length - 1; i++) {
+    let low = i;
+    for (let s = i + 1; s < players.length; s++) {
+      if (players[s].score > players[low].score) {
+        low = s;
+      }
+    }
+
+    [players[i], players[low]] = [players[low], players[i]];
+  }
+
+  return players;
+}
+
+const coding_tournament_result = coding_tournament(players);
+
+// console.log(coding_tournament_result)
