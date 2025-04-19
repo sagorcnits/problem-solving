@@ -29,7 +29,7 @@ const item_list = [
   { name: "Zucchini", price: 32 },
 ];
 
-function sort(arr) {
+function sort_by_letter(arr) {
   let length = arr.length - 1;
   for (let i = 0; i < length; i++) {
     for (let j = 0; j < length - i - 1; j++) {
@@ -46,7 +46,7 @@ function sort(arr) {
 // console.log(sort(item_list))
 
 function search_item_price(list, item_name) {
-  const sort_list = sort(list)
+  const sort_list = sort_by_letter(list)
   let start = 0;
   let end = sort_list.length - 1;
 
@@ -163,3 +163,45 @@ function ask_book(booklist, book_id) {
 
 const ask_book_result = ask_book(librarian_books, 5);
 // console.log(ask_book_result);
+
+
+/*
+
+3. 🍔 “Arrange Orders by Amount”
+A food delivery guy receives multiple orders with different total prices. At the end of the day, he wants to analyze which orders paid him the most, and which the least. But first, he needs to arrange the order amounts in increasing order so it’s easier to see.
+Write a program that sorts the order amounts from low to high.
+
+*/
+
+const order = [
+  { name: "apple", price: 300 },
+  { name: "banana", price: 120 },
+  { name: "orange", price: 180 },
+  { name: "grapes", price: 220 },
+  { name: "pineapple", price: 350 },
+  { name: "watermelon", price: 400 },
+  { name: "mango", price: 250 },
+  { name: "kiwi", price: 270 },
+  { name: "strawberry", price: 320 },
+  { name: "blueberry", price: 290 },
+];
+
+
+function arrange_amount (order){
+  for(let i = 0; i < order.length - 1; i++){
+    let low = i;
+    for(let s= i + 1; s < order.length; s++){
+        if(order[s].price > order[low].price){
+          low = s;
+        }
+    }
+
+    [order[i], order[low]] = [order[low], order[i]]
+  }
+
+  return order;
+}
+
+const amount_result = arrange_amount(order)
+
+// console.log(amount_result)
