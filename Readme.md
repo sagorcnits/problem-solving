@@ -19,5 +19,8 @@ Write a program that sorts the order amounts from low to high.
 
 #### 4. 🚌 “When’s the Next Bus to Banani?”
 
-You’re at a digital bus stop where an electronic screen shows all arriving buses and their destinations. You want to build a simple system that finds the first bus that’s going to “Banani” so you can plan your ride.
-Given a list of buses and destinations, write a program to find the first match for your destination.
+You’re at a digital bus stop where an electronic screen shows all arriving buses and their destinations. You want to build a simple system that finds the first bus that’s going to “Banani” so you can plan your ride. Given a list of buses and destinations, write a program to find the first match for your destination.
+
+#### 5. 🏆 “Who’s Winning the Tournament?”
+
+You’re in charge of a school coding tournament scoreboard. Every player’s score is being tracked. Your task is to display the leaderboard from the highest score to the lowest so everyone can see who’s leading. Use logic to rearrange the players based on their scores.
