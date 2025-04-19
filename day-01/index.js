@@ -250,12 +250,15 @@ function find_frist_dest(bus_list, destination) {
     const [hours, minutes] = timeStr.split(":").map(Number);
     return hours * 60 + minutes;
   }
-  
+
   let frist_bus = 0;
 
-  for(let i = 0; i < target_dest_arr.length; i++){
-    if(timeToMinutes(target_dest_arr[frist_bus].time) > timeToMinutes(target_dest_arr[i].time)) {
-        frist_bus = i
+  for (let i = 0; i < target_dest_arr.length; i++) {
+    if (
+      timeToMinutes(target_dest_arr[frist_bus].time) >
+      timeToMinutes(target_dest_arr[i].time)
+    ) {
+      frist_bus = i;
     }
   }
 
@@ -289,9 +292,8 @@ const players = [
   { name: "Mahin", score: 90 },
   { name: "Tuhin", score: 69 },
   { name: "Ruba", score: 86 },
-  { name: "Ishrat", score: 94 }
-]
-
+  { name: "Ishrat", score: 94 },
+];
 
 function coding_tournament(players) {
   for (let i = 0; i < players.length - 1; i++) {
@@ -311,3 +313,91 @@ function coding_tournament(players) {
 const coding_tournament_result = coding_tournament(players);
 
 // console.log(coding_tournament_result)
+
+/*
+
+6. 🎬 “Is That Movie in the Database?”
+You’re working on a cinema ticket website. When users search for a movie title, it needs to tell them if the movie is available in the database or not. The list of movie names is already sorted alphabetically.
+Write the logic that checks if a particular movie exists in the system and returns its index if found.
+
+*/
+
+const cinema = [
+  "Avatar",
+  "Black Panther",
+  "Dune",
+  "Inception",
+  "Interstellar",
+  "Joker",
+  "Oppenheimer",
+  "Parasite",
+  "The Dark Knight",
+  "Titanic",
+];
+
+function find_cinema(cinema_arr, target_cinema) {
+  let start = 0;
+  let end = cinema_arr.length - 1;
+  for (let i = start; i <= end; i++) {
+    let mid_index = Math.floor((start + end) / 2);
+   
+    if (cinema_arr[mid_index] === target_cinema) {
+      return cinema_arr[mid_index];
+    }
+    if (cinema_arr[mid_index].localeCompare(target_cinema) < 0) {
+      start = mid_index + 1;
+    } else {
+      end = mid_index - 1;
+    }
+  }
+
+  return "Not Found This Cinema";
+}
+
+
+const cinema_result = find_cinema(cinema, "Avatar")
+
+console.log("cinema",cinema_result)
+
+
+// function find_cinema(cinema_arr, target_cinema) {
+//   let start = 0;
+//   let end = cinema_arr.length - 1;
+
+//   while (start <= end) {
+//     let mid_index = Math.floor((start + end) / 2);
+    
+//     // If target cinema is found
+//     if (cinema_arr[mid_index] === target_cinema) {
+//       return cinema_arr[mid_index];
+//     }
+    
+//     // If the target cinema comes after the mid cinema, move to the right side
+//     if (cinema_arr[mid_index].localeCompare(target_cinema) < 0) {
+//       start = mid_index + 1;
+//     }
+//     // If the target cinema comes before the mid cinema, move to the left side
+//     else {
+//       end = mid_index - 1;
+//     }
+//   }
+
+//   return "Not Found This Cinema";  // If the cinema is not found
+// }
+
+// // Example Usage
+// const cinema = [
+//   "Avatar",
+//   "Black Panther",
+//   "Dune",
+//   "Inception",
+//   "Interstellar",
+//   "Joker",
+//   "Oppenheimer",
+//   "Parasite",
+//   "The Dark Knight",
+//   "Titanic"
+// ];
+
+// const cinema_result = find_cinema(cinema, "Avatar");
+// console.log(cinema_result);  // Output: Avatar
