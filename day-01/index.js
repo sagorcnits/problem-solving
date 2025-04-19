@@ -29,13 +29,29 @@ const item_list = [
   { name: "Zucchini", price: 32 },
 ];
 
+function sort(arr) {
+  let length = arr.length - 1;
+  for (let i = 0; i < length; i++) {
+    for (let j = 0; j < length - i - 1; j++) {
+      if (arr[j].name.toLowerCase() > arr[j + 1].name.toLowerCase()) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      } 
+    }
+  }
+
+  return arr;
+}
+
+
+// console.log(sort(item_list))
+
 function search_item_price(list, item_name) {
-  const sort_list = list.sort((a, b) => a.name.localeCompare(b.name));
+  const sort_list = sort(list)
   let start = 0;
   let end = sort_list.length - 1;
 
   //  loop for searching target item price
-  for (let i = start; i < end; i++) {
+  for (let i = start; i <= end; i++) {
     let mid_index = Math.floor((start + end) / 2);
     // console.log(mid_index)
     // checking
@@ -57,7 +73,7 @@ function search_item_price(list, item_name) {
 
 const result = search_item_price(item_list, "Carrot");
 
-// console.log(result)
+console.log(result)
 
 /*
 
