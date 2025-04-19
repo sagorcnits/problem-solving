@@ -35,18 +35,17 @@ function sort_by_letter(arr) {
     for (let j = 0; j < length - i - 1; j++) {
       if (arr[j].name.toLowerCase() > arr[j + 1].name.toLowerCase()) {
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-      } 
+      }
     }
   }
 
   return arr;
 }
 
-
 // console.log(sort(item_list))
 
 function search_item_price(list, item_name) {
-  const sort_list = sort_by_letter(list)
+  const sort_list = sort_by_letter(list);
   let start = 0;
   let end = sort_list.length - 1;
 
@@ -73,7 +72,7 @@ function search_item_price(list, item_name) {
 
 const result = search_item_price(item_list, "Carrot");
 
-console.log(result)
+console.log(result);
 
 /*
 
@@ -164,7 +163,6 @@ function ask_book(booklist, book_id) {
 const ask_book_result = ask_book(librarian_books, 5);
 // console.log(ask_book_result);
 
-
 /*
 
 3. 🍔 “Arrange Orders by Amount”
@@ -186,22 +184,84 @@ const order = [
   { name: "blueberry", price: 290 },
 ];
 
-
-function arrange_amount (order){
-  for(let i = 0; i < order.length - 1; i++){
+function arrange_amount(order) {
+  for (let i = 0; i < order.length - 1; i++) {
     let low = i;
-    for(let s= i + 1; s < order.length; s++){
-        if(order[s].price > order[low].price){
-          low = s;
-        }
+    for (let s = i + 1; s < order.length; s++) {
+      if (order[s].price > order[low].price) {
+        low = s;
+      }
     }
 
-    [order[i], order[low]] = [order[low], order[i]]
+    [order[i], order[low]] = [order[low], order[i]];
   }
 
   return order;
 }
 
-const amount_result = arrange_amount(order)
+const amount_result = arrange_amount(order);
 
 // console.log(amount_result)
+
+/*
+4. 🚌 “When’s the Next Bus to Banani?”
+You’re at a digital bus stop where an electronic screen shows all arriving buses and their destinations. You want to build a simple system that finds the first bus that’s going to “Banani” so you can plan your ride.
+Given a list of buses and destinations, write a program to find the first match for your destination.
+
+
+
+*/
+
+const bus_arriving_dest = [
+  { destination: "banani", time: "2:30", bus_name: "Silbar" },
+  { destination: "banani", time: "3:30", bus_name: "Greenline" },
+  { destination: "banani", time: "4:30", bus_name: "Shyamoli" },
+  { destination: "banani", time: "5:30", bus_name: "Hanif" },
+  { destination: "banani", time: "6:30", bus_name: "Ena" },
+
+  { destination: "uttara", time: "2:45", bus_name: "Greenline" },
+  { destination: "uttara", time: "3:45", bus_name: "Shyamoli" },
+  { destination: "uttara", time: "5:00", bus_name: "Hanif" },
+
+  { destination: "mirpur", time: "2:15", bus_name: "Shyamoli" },
+  { destination: "mirpur", time: "3:15", bus_name: "Silbar" },
+  { destination: "mirpur", time: "4:45", bus_name: "Ena" },
+
+  { destination: "dhanmondi", time: "1:30", bus_name: "Silbar" },
+  { destination: "dhanmondi", time: "2:00", bus_name: "Greenline" },
+  { destination: "dhanmondi", time: "4:00", bus_name: "Shyamoli" },
+
+  { destination: "motijheel", time: "3:00", bus_name: "Hanif" },
+  { destination: "motijheel", time: "4:15", bus_name: "Greenline" },
+
+  { destination: "farmgate", time: "2:50", bus_name: "Shyamoli" },
+  { destination: "farmgate", time: "3:50", bus_name: "Silbar" },
+
+  { destination: "gulshan", time: "3:25", bus_name: "Greenline" },
+  { destination: "gulshan", time: "4:55", bus_name: "Ena" },
+];
+
+function find_frist_dest(bus_list, destination) {
+  const target_dest_arr = bus_list.filter(
+    (bus) => bus.destination.toLowerCase() == destination.toLowerCase()
+  );
+
+  function timeToMinutes(timeStr) {
+    const [hours, minutes] = timeStr.split(":").map(Number);
+    return hours * 60 + minutes;
+  }
+  
+  let frist_bus = 0;
+
+  for(let i = 0; i < target_dest_arr.length; i++){
+    if(timeToMinutes(target_dest_arr[frist_bus].time) > timeToMinutes(target_dest_arr[i].time)) {
+        frist_bus = i
+    }
+  }
+
+  return target_dest_arr[frist_bus].time;
+}
+
+const dest_result = find_frist_dest(bus_arriving_dest, "banani");
+
+console.log("the frist bannai bus: ", dest_result);
