@@ -16,3 +16,8 @@ Help the librarian by writing the logic that efficiently checks if the book is a
 
 A food delivery guy receives multiple orders with different total prices. At the end of the day, he wants to analyze which orders paid him the most, and which the least. But first, he needs to arrange the order amounts in increasing order so it’s easier to see.
 Write a program that sorts the order amounts from low to high.
+
+#### 4. 🚌 “When’s the Next Bus to Banani?”
+
+You’re at a digital bus stop where an electronic screen shows all arriving buses and their destinations. You want to build a simple system that finds the first bus that’s going to “Banani” so you can plan your ride.
+Given a list of buses and destinations, write a program to find the first match for your destination.
