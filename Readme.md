@@ -30,7 +30,12 @@ You’re in charge of a school coding tournament scoreboard. Every player’s sc
 You’re working on a cinema ticket website. When users search for a movie title, it needs to tell them if the movie is available in the database or not. The list of movie names is already sorted alphabetically.
 Write the logic that checks if a particular movie exists in the system and returns its index if found.
 
-#### 6. 📦 “Delivery Sorting Nightmare”
+#### 7. 📦 “Delivery Sorting Nightmare”
 
 A courier service receives packages throughout the day. At night, the delivery man wants to sort them by weight so that the lighter ones are delivered first (easier to carry in order).
 You need to build a mini-program that organizes the package weights in increasing order.
+
+#### 8. 🎓 “How Did Karim Do in the Exam?”
+
+A teacher has a digital gradebook with students’ names and marks. One day, the teacher wants to quickly check how much Karim scored without scanning the whole list manually.
+Help build a search function that finds a student by name and shows the marks.
