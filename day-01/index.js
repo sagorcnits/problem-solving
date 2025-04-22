@@ -359,6 +359,43 @@ function find_cinema(cinema_arr, target_cinema) {
 
 const cinema_result = find_cinema(cinema, "Avatar")
 
-console.log(cinema_result)
+// console.log(cinema_result)
 
+/*
+7. 📦 “Delivery Sorting Nightmare”
+
+A courier service receives packages throughout the day. At night, the delivery man wants to sort them by weight so that the lighter ones are delivered first (easier to carry in order).
+You need to build a mini-program that organizes the package weights in increasing order.
+
+*/
+
+const curia_service = [
+  { "packageId": "PKG001", "weightKg": 12.5 },
+  { "packageId": "PKG002", "weightKg": 3.2 },
+  { "packageId": "PKG003", "weightKg": 7.8 },
+  { "packageId": "PKG004", "weightKg": 1.4 },
+  { "packageId": "PKG005", "weightKg": 9.0 },
+  { "packageId": "PKG006", "weightKg": 5.5 },
+  { "packageId": "PKG007", "weightKg": 2.1 },
+  { "packageId": "PKG008", "weightKg": 6.3 },
+  { "packageId": "PKG009", "weightKg": 10.7 },
+  { "packageId": "PKG010", "weightKg": 4.6 }
+]
+
+function weight_sort(arr) {
+  let length = arr.length;
+  for (let i = 0; i < length - 1; i++) {
+    for (let j = 0; j < length - i - 1; j++) {
+      if (arr[j].weightKg > arr[j + 1].weightKg) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+  return arr;
+}
+
+
+
+const weight_result = weight_sort(curia_service)
+// console.log("weight",weight_result)
 
