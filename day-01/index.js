@@ -344,11 +344,10 @@ function find_cinema(cinema_arr, target_cinema) {
     if (cinema_arr[mid_index] === target_cinema) {
       return mid_index;
     }
-    
+
     if (cinema_arr[mid_index].localeCompare(target_cinema) < 0) {
       start = mid_index + 1;
-    }
-    else {
+    } else {
       end = mid_index - 1;
     }
   }
@@ -356,8 +355,7 @@ function find_cinema(cinema_arr, target_cinema) {
   return "Not Found This Cinema";
 }
 
-
-const cinema_result = find_cinema(cinema, "Avatar")
+const cinema_result = find_cinema(cinema, "Avatar");
 
 // console.log(cinema_result)
 
@@ -370,17 +368,17 @@ You need to build a mini-program that organizes the package weights in increasin
 */
 
 const curia_service = [
-  { "packageId": "PKG001", "weightKg": 12.5 },
-  { "packageId": "PKG002", "weightKg": 3.2 },
-  { "packageId": "PKG003", "weightKg": 7.8 },
-  { "packageId": "PKG004", "weightKg": 1.4 },
-  { "packageId": "PKG005", "weightKg": 9.0 },
-  { "packageId": "PKG006", "weightKg": 5.5 },
-  { "packageId": "PKG007", "weightKg": 2.1 },
-  { "packageId": "PKG008", "weightKg": 6.3 },
-  { "packageId": "PKG009", "weightKg": 10.7 },
-  { "packageId": "PKG010", "weightKg": 4.6 }
-]
+  { packageId: "PKG001", weightKg: 12.5 },
+  { packageId: "PKG002", weightKg: 3.2 },
+  { packageId: "PKG003", weightKg: 7.8 },
+  { packageId: "PKG004", weightKg: 1.4 },
+  { packageId: "PKG005", weightKg: 9.0 },
+  { packageId: "PKG006", weightKg: 5.5 },
+  { packageId: "PKG007", weightKg: 2.1 },
+  { packageId: "PKG008", weightKg: 6.3 },
+  { packageId: "PKG009", weightKg: 10.7 },
+  { packageId: "PKG010", weightKg: 4.6 },
+];
 
 function weight_sort(arr) {
   let length = arr.length;
@@ -394,8 +392,61 @@ function weight_sort(arr) {
   return arr;
 }
 
-
-
-const weight_result = weight_sort(curia_service)
+const weight_result = weight_sort(curia_service);
 // console.log("weight",weight_result)
 
+/*
+
+🎓 “How Did Karim Do in the Exam?”
+
+A teacher has a digital gradebook with students’ names and marks. One day, the teacher wants to quickly check how much Karim scored without scanning the whole list manually.
+Help build a search function that finds a student by name and shows the marks.
+
+*/
+
+const students = [
+  { name: "Karim", marks: 85 },
+  { name: "Rahim", marks: 78 },
+  { name: "Amina", marks: 92 },
+  { name: "Tania", marks: 88 },
+  { name: "Sajid", marks: 75 },
+  { name: "Nusrat", marks: 91 },
+  { name: "Fahim", marks: 67 },
+  { name: "Jamal", marks: 80 },
+  { name: "Salma", marks: 84 },
+  { name: "Biplob", marks: 73 },
+];
+
+function sort_by_letter(arr) {
+  return arr.slice().sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function student_marks(arr, name) {
+  const sort_arr = sort_by_letter(arr);
+  let start = 0;
+  let end = sort_arr.length - 1;
+
+  while (start <= end) {
+    let mid_index = Math.floor((start + end) / 2);
+    const mid_name = sort_arr[mid_index].name.toLowerCase();
+    const target_name = name.toLowerCase();
+
+    const comparison = mid_name.localeCompare(target_name);
+
+    if (comparison === 0) {
+      return sort_arr[mid_index].marks;
+    }
+
+    if (comparison < 0) {
+      start = mid_index + 1;
+    } else {
+      end = mid_index - 1;
+    }
+  }
+
+  return null; 
+}
+
+
+const mark_result = student_marks(students, "Jamal")
+// console.log(mark_result)
